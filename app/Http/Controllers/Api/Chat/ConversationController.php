@@ -36,11 +36,15 @@ class ConversationController extends Controller
             'latest_message.created_at AS last_message_created',
         ])
         ->selectSub(function ($builder) {
+            $builder->selectRaw('COUNT(*)')
+                ->from('messages')
+                ->where('is_seen', false)
+                ->where('messages.to_id', Auth::id())
+                ->whereColumn('messages.from_id', 'users.id');
+        }, 'unread_count')
+        ->selectSub(function ($builder) {
             $builder->select('body')->from('messages')->whereColumn('messages.id', 'latest_message_id');
         }, 'body')
-        ->selectSub(function ($builder) {
-            $builder->select('is_seen')->from('messages')->whereColumn('messages.id', 'latest_message_id');
-        }, 'is_seen')
         ->selectSub(function ($builder) {
             $builder->select('type')->from('messages')->whereColumn('messages.id', 'latest_message_id');
         }, 'type')

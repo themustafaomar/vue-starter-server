@@ -24,9 +24,9 @@ class ChatService
 
         $message = Message::create($data);
 
-        if ($request->type === 'record') {
-            $message->addMediaFromRequest('record')
-                ->toMediaCollection('record', 'public')
+        if ($request->type === 'voice') {
+            $message->addMediaFromRequest('voice')
+                ->toMediaCollection('voice', 'public')
                 ->getFullUrl();
         }
 

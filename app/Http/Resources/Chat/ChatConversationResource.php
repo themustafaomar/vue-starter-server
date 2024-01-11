@@ -22,7 +22,7 @@ class ChatConversationResource extends JsonResource
             'type' => $this->type,
             'body' => $this->body,
             'last_message_created' => $this->last_message_created,
-            'is_seen' => (bool) $this->is_seen,
+            'unread_count' => $this->unread_count,
         ];
     }
 }
