@@ -37,7 +37,7 @@ class Message extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('record')
+        $this->addMediaCollection('voice')
             ->singleFile();
     }
 }
