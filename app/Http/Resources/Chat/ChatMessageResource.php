@@ -30,7 +30,7 @@ class ChatMessageResource extends JsonResource
             'user' => $this->whenLoaded('user', fn () => [
                 'id' => $this->user->id,
                 'name' => $this->user->name,
-                'avatar' => $this->user->getFirstMediaUrl('avatar', 'thumb'),
+                'avatar_url' => $this->user->getFirstMediaUrl('avatar', 'thumb'),
             ]),
         ];
     }

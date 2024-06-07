@@ -22,7 +22,7 @@ class RoleController extends Controller
         $this->authorize('viewAny', Role::class);
 
         return RoleResource::collection(
-            Role::latest()->get()
+            Role::with('permissions')->latest()->get()
         );
     }
 

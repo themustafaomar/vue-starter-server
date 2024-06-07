@@ -45,7 +45,7 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        $user->update($request->validated());
+        $user->update($request->safe()->except('avatar'));
         $user->syncRoles($request->role);
 
         return ok();

@@ -35,6 +35,7 @@ class UserStoreRequest extends FormRequest
             'password' => [$this->is_updating ? 'nullable' : 'required', 'min:8'],
             'status' => ['required', 'in:'.UserStatus::list()],
             'role' => ['required', 'exists:roles,id'],
+            'avatar' => ['sometimes', 'nullable', 'image', 'mimes:jpg,png,svg,webp,tiff']
         ];
     }
 }

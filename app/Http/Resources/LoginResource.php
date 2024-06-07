@@ -19,7 +19,7 @@ class LoginResource extends JsonResource
                 'id' => $this->id,
                 'name' => $this->name,
                 'email' => $this->email,
-                'avatar' => $this->getFirstMediaUrl('avatar', 'thumb'),
+                'avatar_url' => $this->getFirstMediaUrl('avatar', 'thumb'),
                 'created' => $this->created_at?->diffForHumans(),
             ],
             'permissions' => [

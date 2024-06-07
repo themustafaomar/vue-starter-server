@@ -18,7 +18,7 @@ class ChatConversationResource extends JsonResource
             'id' => $this->id,
             'from_id' => $this->from_id,
             'name' => $this->name,
-            'avatar' => $this->getFirstMediaUrl('avatar', 'thumb'),
+            'avatar_url' => $this->getFirstMediaUrl('avatar', 'thumb'),
             'type' => $this->type,
             'body' => $this->body,
             'last_message_created' => $this->last_message_created,
